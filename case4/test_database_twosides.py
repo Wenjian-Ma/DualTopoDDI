@@ -171,11 +171,11 @@ def test_nn_warm(model, test_loader, device, args,rel_dict):
 
 
             if args.dataset == 'drugbank' or args.dataset == 'twosides':
-                with open('/media/ST-18T/Ma/HA-DDI/data/preprocessed/case4/database/'+args.dataset+'_constructed_database.csv','a') as f:
+                with open('/media/ST-18T/Ma/TIDE/data/preprocessed/case4/database/'+args.dataset+'_constructed_database.csv','a') as f:
                     for i in range(len(h_id)):
                         f.write(h_id[i]+','+t_id[i]+','+rel_dict[str(rel_list[i])]+','+str(pred_list[i])+'\n')
             elif args.dataset == 'DeepDDI':
-                with open('/media/ST-18T/Ma/HA-DDI/data/preprocessed/case4/database/'+args.dataset+'_constructed_database.csv','a') as f:
+                with open('/media/ST-18T/Ma/TIDE/data/preprocessed/case4/database/'+args.dataset+'_constructed_database.csv','a') as f:
                     for i in range(len(h_id)):
                         f.write(h_id[i]+','+t_id[i]+','+str(pred_list[i])+'\n')
 
@@ -184,7 +184,7 @@ def test_nn_warm(model, test_loader, device, args,rel_dict):
 
 def get_rel_dict(dataset):
     rel_dict = {}
-    with open('/media/ST-18T/Ma/HA-DDI/data/preprocessed/case4/'+dataset+'_rel_dict.txt') as f:
+    with open('/media/ST-18T/Ma/TIDE/data/preprocessed/case4/'+dataset+'_rel_dict.txt') as f:
         for line in f:
             Y = line.strip().split('\t')[0]
             content = line.strip().split('\t')[1]
@@ -196,9 +196,9 @@ def test(args):
 
     batch_size = args.batch_size
 
-    drug_graph = pd.read_pickle('/media/ST-18T/Ma/HA-DDI/data/preprocessed/case4/'+args.dataset+'_drug.pkl')
+    drug_graph = pd.read_pickle('/media/ST-18T/Ma/TIDE/data/preprocessed/case4/'+args.dataset+'_drug.pkl')
     approved_drug = {}
-    with open('/media/ST-18T/Ma/HA-DDI/data/preprocessed/case4/approved_drug.csv') as f:
+    with open('/media/ST-18T/Ma/TIDE/data/preprocessed/case4/approved_drug.csv') as f:
         for line in f:
             id = line.strip().split(',')[0]
             smiles = line.strip().split(',')[1]
@@ -215,7 +215,7 @@ def test(args):
 
     model = nnModel3(node_dim, edge_dim, n_iter=args.n_iter, args=args).to(device)
 
-    model_path = '/media/ST-18T/Ma/HA-DDI/data/preprocessed/case4/model/' + args.dataset + '/model.pkl'
+    model_path = '/media/ST-18T/Ma/TIDE/data/preprocessed/case4/model/' + args.dataset + '/model.pkl'
 
     model.load_state_dict(torch.load(model_path, map_location=device))
 
@@ -223,7 +223,7 @@ def test(args):
     rel_dict = get_rel_dict(args.dataset)
     rel_dict_reverse = {j: i for i, j in rel_dict.items()}
 
-    with open('/media/ST-18T/Ma/HA-DDI/data/preprocessed/case4/database/twosides_constructed_database.csv') as f:
+    with open('/media/ST-18T/Ma/TIDE/data/preprocessed/case4/database/twosides_constructed_database.csv') as f:
         for line in f:
             a = line.strip().split(',')[0]
             b = line.strip().split(',')[1]
