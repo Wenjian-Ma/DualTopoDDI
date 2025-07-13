@@ -35,7 +35,7 @@ from tqdm import tqdm
 
 chemicals_dict = {}
 
-chemicals = pd.read_csv('/media/ST-18T/Ma/HA-DDI/data/preprocessed/case/58_chemicals.csv',delimiter=',',header=None)
+chemicals = pd.read_csv('/media/ST-18T/Ma/TIDE/data/preprocessed/case/58_chemicals.csv',delimiter=',',header=None)
 
 chemicals_substructure_dict = {}
 substructure_chemicals_dict = {}
@@ -479,7 +479,7 @@ def test_nn(model, external_loader, device, args):
     pred_label = np.argmax(pred_probs, axis=-1)
 
     drug_name_list = []
-    with open('/media/ST-18T/Ma/HA-DDI/data/preprocessed/case/ddi_for_58.csv') as f:
+    with open('/media/ST-18T/Ma/TIDE/data/preprocessed/case/ddi_for_58.csv') as f:
         for idx,line in enumerate(f):
             if idx==0:
                 continue
@@ -501,11 +501,11 @@ def test_nn(model, external_loader, device, args):
         a5 = drug_predicted_line_attn_dict[i]
 
 
-        # with open('/media/ST-18T/Ma/HA-DDI/data/preprocessed/case/attn_data_fig/node_csv_files/'+i+'.csv','a') as f:
+        # with open('/media/ST-18T/Ma/TIDE/data/preprocessed/case/attn_data_fig/node_csv_files/'+i+'.csv','a') as f:
         #     for j in range(len(a1)):
         #         f.write(i+','+str(a1[j]) + ',' + str(a2[j]) + '\n')
         #
-        # with open('/media/ST-18T/Ma/HA-DDI/data/preprocessed/case/attn_data_fig/line_csv_files/'+i+'.csv','a') as f:
+        # with open('/media/ST-18T/Ma/TIDE/data/preprocessed/case/attn_data_fig/line_csv_files/'+i+'.csv','a') as f:
         #     for j in range(len(a4)):
         #         f.write(i+','+str(a4[j]) + ',' + str(a5[j]) + '\n')
 
@@ -525,12 +525,12 @@ def test_nn(model, external_loader, device, args):
 
 
 def test(args):
-    root = '/media/ST-18T/Ma/HA-DDI/data/preprocessed/' + args.dataset
+    root = '/media/ST-18T/Ma/TIDE/data/preprocessed/' + args.dataset
     batch_size = args.batch_size
 
-    drug_graph = read_pickle(os.path.join('/media/ST-18T/Ma/HA-DDI/data/preprocessed/case', 'drug_data.pkl'))
+    drug_graph = read_pickle(os.path.join('/media/ST-18T/Ma/TIDE/data/preprocessed/case', 'drug_data.pkl'))
 
-    external_df = pd.read_csv(os.path.join('/media/ST-18T/Ma/HA-DDI/data/preprocessed/case', f'ddi_for_58.csv'), delimiter=',')
+    external_df = pd.read_csv(os.path.join('/media/ST-18T/Ma/TIDE/data/preprocessed/case', f'ddi_for_58.csv'), delimiter=',')
 
     external_set = DrugDataset3(external_df, drug_graph, args)
 
@@ -546,7 +546,7 @@ def test(args):
 
     model = nnModel_MMDDI(node_dim, edge_dim, n_iter=args.n_iter, args=args).to(device)
 
-    model.load_state_dict(torch.load('/media/ST-18T/Ma/HA-DDI/data/preprocessed/case/model.pkl', map_location=device))
+    model.load_state_dict(torch.load('/media/ST-18T/Ma/TIDE/data/preprocessed/case/model.pkl', map_location=device))
 
     test_nn(model=model,external_loader=external_loader,device=device, args=args)
 
