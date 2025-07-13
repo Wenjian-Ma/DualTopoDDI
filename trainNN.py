@@ -13,7 +13,7 @@ def train_nn_warm(model,train_loader,valid_loader, test_loader,device,args):
     criterion = nn.BCELoss()
 
     optimizer = optim.Adam(model.parameters(), lr=args.lr)
-    scheduler = optim.lr_scheduler.OneCycleLR(optimizer, max_lr=args.lr, total_steps=args.epochs * len(train_loader))#480   960   1919 22882
+    scheduler = optim.lr_scheduler.OneCycleLR(optimizer, max_lr=args.lr, total_steps=args.epochs * len(train_loader))
 
     for epoch in range(args.epochs):
         total_acc=0
@@ -27,22 +27,13 @@ def train_nn_warm(model,train_loader,valid_loader, test_loader,device,args):
             else:
                 head_pairs, tail_pairs, label = [d.to(device) for d in data]
                 pred, h_g_node_list, h_g_line_list, t_g_node_list, t_g_line_list = model((head_pairs, tail_pairs))
-            # pred = model((head_pairs, tail_pairs, rel))
-
-
-            ###################
 
             cl_loss = (InfoNCE(h_g_node_list,h_g_line_list,device=device)+InfoNCE(t_g_node_list,t_g_line_list,device=device))
-            ###################
-
-
+            
             bce_loss = criterion(pred, label)
 
-            ###################
-            loss = bce_loss + 0.2*cl_loss#0.4
-            ####################
-
-
+            loss = bce_loss + 0.2*cl_loss
+            
             optimizer.zero_grad()
             loss.backward()
             optimizer.step()
@@ -112,16 +103,9 @@ def train_nn_warm(model,train_loader,valid_loader, test_loader,device,args):
                     head_pairs, tail_pairs, label = [d.to(device) for d in data]
                     pred, _, _, _, _ = model((head_pairs, tail_pairs))
 
-                #pred = model((head_pairs, tail_pairs, rel))
-
-                ###################
-
-                ####################
-
 
                 loss = criterion(pred, label)
 
-                # pred_cls = torch.sigmoid(pred)
                 pred_list.append(pred.view(-1).detach().cpu().numpy())
                 label_list.append(label.detach().cpu().numpy())
 
@@ -165,9 +149,7 @@ def train_nn_cold(model,train_loader, valid_loader,test_loader,device,args):
 
             bce_loss = criterion(pred, label)
 
-            ###################
-            loss = bce_loss + cl_loss
-            ####################
+            loss = bce_loss + cl_loss*0.2
 
             optimizer.zero_grad()
             loss.backward()
@@ -182,8 +164,6 @@ def train_nn_cold(model,train_loader, valid_loader,test_loader,device,args):
         total_acc = total_acc / (idx + 1)
         total_loss = total_loss / (idx + 1)
 
-
-        #############################################
         model.eval()
         pred_list = []
         label_list = []
@@ -198,7 +178,7 @@ def train_nn_cold(model,train_loader, valid_loader,test_loader,device,args):
                 pred, _, _, _, _ = model((head_pairs, tail_pairs, rel))
                 loss = criterion(pred, label)
 
-                # pred_cls = torch.sigmoid(pred)
+        
                 pred_list.append(pred.view(-1).detach().cpu().numpy())
                 label_list.append(label.detach().cpu().numpy())
 
@@ -214,7 +194,7 @@ def train_nn_cold(model,train_loader, valid_loader,test_loader,device,args):
 
         print(msg1)
 
-        #####################################
+        
         model.eval()
         pred_list = []
         label_list = []
@@ -229,7 +209,7 @@ def train_nn_cold(model,train_loader, valid_loader,test_loader,device,args):
                 pred, _, _, _, _ = model((head_pairs, tail_pairs, rel))
                 loss = criterion(pred, label)
 
-                # pred_cls = torch.sigmoid(pred)
+                
                 pred_list.append(pred.view(-1).detach().cpu().numpy())
                 label_list.append(label.detach().cpu().numpy())
 
