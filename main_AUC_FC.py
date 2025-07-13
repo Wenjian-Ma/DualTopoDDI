@@ -18,7 +18,7 @@ def train_nn(model,train_loader, test_loader,external_loader,device,args,fold):
     criterion = nn.MSELoss()
 
     optimizer = optim.Adam(model.parameters(), lr=args.lr)
-    scheduler = optim.lr_scheduler.OneCycleLR(optimizer, max_lr=args.lr, total_steps=args.epochs * len(train_loader))#480   960   1919 22882
+    scheduler = optim.lr_scheduler.OneCycleLR(optimizer, max_lr=args.lr, total_steps=args.epochs * len(train_loader))
 
     for epoch in range(args.epochs):
         total_acc=0
@@ -30,19 +30,12 @@ def train_nn(model,train_loader, test_loader,external_loader,device,args,fold):
             head_pairs, tail_pairs, label = [d.to(device) for d in data]
             pred, h_g_node_list, h_g_line_list, t_g_node_list, t_g_line_list = model((head_pairs, tail_pairs))
 
-            ###################
-
             cl_loss = (InfoNCE(h_g_node_list,h_g_line_list,device=device)+InfoNCE(t_g_node_list,t_g_line_list,device=device))
-            ###################
 
+            mse_loss = criterion(pred.squeeze(), label)
 
-            mse_loss = criterion(pred.squeeze(), label)#.to(torch.float)
-
-            ###################
-            loss = mse_loss + 0.2*cl_loss#0.4
-            ####################
-
-
+            loss = mse_loss + 0.4*cl_loss
+            
             optimizer.zero_grad()
             loss.backward()
             optimizer.step()
@@ -78,7 +71,6 @@ def train_nn(model,train_loader, test_loader,external_loader,device,args,fold):
 
         print(msg1)
 
-        ##########################
         model.eval()
         pred_list = []
         label_list = []
