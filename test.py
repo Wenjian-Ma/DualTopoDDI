@@ -24,12 +24,6 @@ def test_nn_warm(model, test_loader, device, args):
                 head_pairs, tail_pairs, label = [d.to(device) for d in data]
                 pred, _, _, _, _  = model((head_pairs, tail_pairs))
 
-
-            # pred = model((head_pairs, tail_pairs, rel))
-            ###################
-
-            ####################
-            # pred_cls = torch.sigmoid(pred)
             pred_list.append(pred.view(-1).detach().cpu().numpy())
             label_list.append(label.detach().cpu().numpy())
 
