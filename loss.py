@@ -41,8 +41,6 @@ def InfoNCE(view1_list, view2_list, temperature=0.2, b_cos: bool = True,device =
 
         if b_cos:
             view1, view2 = F.normalize(view1, dim=1), F.normalize(view2, dim=1)
-        # pos_score = (view1 @ view2.T) / temperature
-        # score = torch.diag(F.logsigmoid(pos_score))
 
         score = F.logsigmoid(torch.sum((view1 * view2) / temperature,dim=1))
 
