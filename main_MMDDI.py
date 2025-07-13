@@ -18,7 +18,7 @@ def train_nn(model, train_loader, test_loader, external_loader, device, args, fo
 
     optimizer = optim.Adam(model.parameters(), lr=args.lr)
     scheduler = optim.lr_scheduler.OneCycleLR(optimizer, max_lr=args.lr,
-                                              total_steps=args.epochs * len(train_loader))  # 480   960   1919 22882
+                                              total_steps=args.epochs * len(train_loader)) 
 
     for epoch in range(args.epochs):
         total_loss = 0
@@ -27,17 +27,12 @@ def train_nn(model, train_loader, test_loader, external_loader, device, args, fo
             head_pairs, tail_pairs, label = [d.to(device) for d in data]
             pred, h_g_node_list, h_g_line_list, t_g_node_list, t_g_line_list = model((head_pairs, tail_pairs))
 
-            ###################
-
             cl_loss = (InfoNCE(h_g_node_list, h_g_line_list, device=device) + InfoNCE(t_g_node_list, t_g_line_list,
                                                                                       device=device))
-            ###################
 
             ce_loss = criterion(pred, label)
 
-            ###################
-            loss = ce_loss + 0.2 * cl_loss  # 0.4
-            ####################
+            loss = ce_loss + 0.4 * cl_loss
 
             optimizer.zero_grad()
             loss.backward()
@@ -151,7 +146,7 @@ def train(args):
         external_set = DrugDataset3(DDInter, drug_graph, args)
 
         train_loader = DrugDataLoader(train_set, batch_size=batch_size, shuffle=True, num_workers=args.num_workers,
-                                      drop_last=False)  # drop_last=True?
+                                      drop_last=False) 
         test_loader = DrugDataLoader(test_set, batch_size=batch_size, shuffle=False, num_workers=args.num_workers)
         external_loader = DrugDataLoader(external_set, batch_size=batch_size, shuffle=False,
                                          num_workers=args.num_workers)
