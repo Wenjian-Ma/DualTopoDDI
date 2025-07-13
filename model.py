@@ -1,13 +1,11 @@
-import torch#mine+SA-DDI substructure+cl
+import torch
 import torch.nn as nn
-# from torch_geometric.nn.inits import glorot
-from torch_scatter import scatter#,scatter_softmax
+from torch_scatter import scatter
 import torch.nn.functional as F
 from torch_geometric.utils import degree
 from torch_geometric.utils import softmax
 from torch_geometric.nn.conv import GraphConv
 from torch_geometric.nn import global_add_pool,global_mean_pool,GATConv
-# from torch_geometric.utils import to_dense_batch
 
 
 class GlobalAttentionPool(nn.Module):
@@ -35,28 +33,23 @@ class LinearBlock(nn.Module):
 
             nn.BatchNorm1d(self.snd_n_feats),
             nn.PReLU(),
-            # nn.Dropout(0.2),
             nn.Linear(self.snd_n_feats, self.snd_n_feats),
         )
         self.lin3 = nn.Sequential(
 
             nn.BatchNorm1d(self.snd_n_feats),
             nn.PReLU(),
-            # nn.Dropout(0.2),
             nn.Linear(self.snd_n_feats, self.snd_n_feats),
         )
         self.lin4 = nn.Sequential(
 
             nn.BatchNorm1d(self.snd_n_feats),
             nn.PReLU(),
-            # nn.Dropout(0.2),
             nn.Linear(self.snd_n_feats, self.snd_n_feats)
         )
         self.lin5 = nn.Sequential(
-
             nn.BatchNorm1d(self.snd_n_feats),
             nn.PReLU(),
-            # nn.Dropout(0.2),
             nn.Linear(self.snd_n_feats, n_feats)
         )
 
@@ -84,11 +77,6 @@ class GlobalAttentionPool(nn.Module):
 class substructure_SA(nn.Module):
     def __init__(self, hidden_dim,args):
         super().__init__()
-        # self.node_conv = GraphConv(hidden_dim, hidden_dim)
-        #                                # nn.Tanh(),
-        #                                # nn.Linear(hidden_dim,1)
-        #
-        # self.line_conv = GraphConv(hidden_dim,hidden_dim)
 
         self.node_pool = GlobalAttentionPool(hidden_dim)
         self.line_pool = GlobalAttentionPool(hidden_dim)
@@ -97,8 +85,6 @@ class substructure_SA(nn.Module):
 
         self.node_Linear = nn.Linear(hidden_dim,1)
         self.line_Linear = nn.Linear(hidden_dim, 1)
-                                       # nn.Tanh(),
-                                       # nn.Linear(hidden_dim,1)
 
         self.node_lin_block = LinearBlock(hidden_dim)#
         self.line_lin_block = LinearBlock(hidden_dim)#
@@ -120,16 +106,14 @@ class substructure_SA(nn.Module):
             line_alpha = self.line_Linear(g_line)
             node_alpha_list.append(node_alpha)
             line_alpha_list.append(line_alpha)
-        node_alpha_list = torch.stack(node_alpha_list,dim=-1)#.squeeze()
-        line_alpha_list = torch.stack(line_alpha_list, dim=-1)#.squeeze()
-        node_attn = torch.softmax(node_alpha_list,dim=-1)#.unsqueeze(1)
-        line_attn = torch.softmax(line_alpha_list,dim=-1)#.unsqueeze(1)
+        node_alpha_list = torch.stack(node_alpha_list,dim=-1)
+        line_alpha_list = torch.stack(line_alpha_list, dim=-1)
+        node_attn = torch.softmax(node_alpha_list,dim=-1)
+        line_attn = torch.softmax(line_alpha_list,dim=-1)
 
         node_attn = node_attn.repeat_interleave(degree(data.batch, dtype=data.batch.dtype), dim=0)
         line_attn = line_attn.repeat_interleave(degree(data.edge_index_batch, dtype=data.edge_index_batch.dtype), dim=0)
 
-        # a = torch.stack(node_list, dim=-1)
-        # b = node_attn * torch.stack(node_list, dim=-1)
         out_node = self.node_lin_block((node_attn * torch.stack(node_list,dim=-1)).sum(-1) + node_list[-1])#
         out_line = self.line_lin_block((line_attn * torch.stack(line_list,dim=-1)).sum(-1) + line_list[-1])
 
@@ -163,22 +147,6 @@ class MH_substructure_SA(nn.Module):
         x_node_output = self.lin_node(x_node_list)
         x_line_output = self.lin_line(x_line_list)
         return x_node_output,x_line_output,mh_g_node_list,mh_g_line_list
-
-
-# class InterGraphAttention_line(nn.Module):
-#     def __init__(self, input_dim):
-#         super().__init__()
-#         self.input_dim = input_dim
-#         self.inter = GATConv((input_dim, input_dim), 32, 2)
-#         self.prelu = nn.PReLU()
-#     def forward(self, h_data, t_data, b_graph):
-#         edge_index = b_graph.edge_index
-#         h_input = self.prelu((h_data.edge_attr))
-#         t_input = self.prelu((t_data.edge_attr))
-#         t_rep = self.inter((h_input, t_input), edge_index)
-#         h_rep = self.inter((t_input, h_input), edge_index[[1, 0]])
-#
-#         return h_rep, t_rep
 
 
 class DMPNN(nn.Module):
@@ -258,28 +226,26 @@ class DrugEncoder(torch.nn.Module):
                 nn.Linear(in_dim, hidden_dim),
                 nn.BatchNorm1d(hidden_dim),
                 nn.PReLU(),
-                #nn.Dropout(0.2)#这行去掉 for drugbank
             )
 
             self.mlp_edge = nn.Sequential(
                 nn.Linear(edge_in_dim, hidden_dim),
                 nn.BatchNorm1d(hidden_dim),
                 nn.PReLU(),
-                #nn.Dropout(0.2)#这行去掉 for drugbank
             )
         elif args.dataset == 'twosides' or args.dataset == 'ZhangDDI' or args.dataset == 'DeepDDI':
             self.mlp_node = nn.Sequential(
                 nn.Linear(in_dim, hidden_dim),
                 nn.BatchNorm1d(hidden_dim),
                 nn.PReLU(),
-                nn.Dropout(0.2)#这行去掉 for drugbank
+                nn.Dropout(0.2)
             )
 
             self.mlp_edge = nn.Sequential(
                 nn.Linear(edge_in_dim, hidden_dim),
                 nn.BatchNorm1d(hidden_dim),
                 nn.PReLU(),
-                nn.Dropout(0.2)#这行去掉 for drugbank
+                nn.Dropout(0.2)
             )
 
 
@@ -287,9 +253,7 @@ class DrugEncoder(torch.nn.Module):
         self.Cross_MPNN = nn.ModuleList()
         for _ in range(n_iter):
             self.Cross_MPNN.append(DMPNN(hidden_dim,args=args))
-            # self.Cross_MPNN.append(GraphConv(hidden_dim,hidden_dim ))
 
-        # self.substructure_SA = substructure_SA(hidden_dim,args=args)
         self.mh_sub_sa = MH_substructure_SA(hidden_dim,args=args)
 
 
@@ -297,19 +261,12 @@ class DrugEncoder(torch.nn.Module):
         data.x = self.mlp_node(data.x)
         data.edge_attr = self.mlp_edge(data.edge_attr)
 
-
-
         node_list = []
         line_list = []
-
-
 
         for nn in self.Cross_MPNN:
 
             data = nn(data)
-
-
-            # data.x = nn(data.x,data.edge_index)
 
             node_list.append(data.x)
             line_list.append(data.edge_attr)
@@ -317,8 +274,6 @@ class DrugEncoder(torch.nn.Module):
         x_node,x_line,mh_g_node_list,mh_g_line_list = self.mh_sub_sa(node_list,line_list,data)
 
         return x_node,x_line,mh_g_node_list,mh_g_line_list
-
-        # return data.x, data.edge_attr, mh_g_node_list, mh_g_line_list
 
 class hierarchical_mutual_attn(nn.Module):
     def __init__(self, hidden_dim):
@@ -379,10 +334,7 @@ class hierarchical_mutual_attn(nn.Module):
 
         b_h_line = torch.diag(global_mean_pool(torch.t(alpha_line), t_data.edge_index_batch)[h_data.edge_index_batch])
         p_h_line = softmax(b_h_line, h_data.edge_index_batch).view(-1, 1)
-        s_h_line = global_add_pool(p_h_line * x_line_h, h_data.edge_index_batch)#+x_line_h
-
-
-
+        s_h_line = global_add_pool(p_h_line * x_line_h, h_data.edge_index_batch)
 
         return s_h,s_t,s_h_line,s_t_line
 
@@ -394,25 +346,16 @@ class nnModel(torch.nn.Module):
 
         self.hma = hierarchical_mutual_attn(hidden_dim)
 
-
-
-
-        self.rmodule = nn.Embedding(963, hidden_dim)#86 963
+        self.rmodule = nn.Embedding(963, hidden_dim)
 
         self.sigmoid = nn.Sigmoid()
-
-
-
-        #####################
 
         if args.dataset == 'drugbank':
             self.lin = nn.Sequential(
                 nn.Linear(hidden_dim * 4, hidden_dim * 8),
-                # nn.BatchNorm1d(hidden_dim*8),##这行去掉 for drugbank
                 nn.PReLU(),
                 nn.Dropout(0.2),
                 nn.Linear(hidden_dim * 8, hidden_dim * 4),
-                # nn.BatchNorm1d(hidden_dim*4),##这行去掉 for drugbank
                 nn.PReLU(),
                 nn.Dropout(0.2),
                 nn.Linear(hidden_dim * 4, hidden_dim),
@@ -420,11 +363,11 @@ class nnModel(torch.nn.Module):
         elif args.dataset == 'twosides':
             self.lin = nn.Sequential(
                 nn.Linear(hidden_dim * 4, hidden_dim * 8),
-                nn.BatchNorm1d(hidden_dim*8),##这行去掉 for drugbank
+                nn.BatchNorm1d(hidden_dim*8),
                 nn.PReLU(),
                 nn.Dropout(0.2),
                 nn.Linear(hidden_dim * 8, hidden_dim * 4),
-                nn.BatchNorm1d(hidden_dim*4),##这行去掉 for drugbank
+                nn.BatchNorm1d(hidden_dim*4),
                 nn.PReLU(),
                 nn.Dropout(0.2),
                 nn.Linear(hidden_dim * 4, hidden_dim),
@@ -434,32 +377,18 @@ class nnModel(torch.nn.Module):
 
 
 
-        x_node_h,x_line_h,h_g_node_list,h_g_line_list = self.drug_encoder(h_data)#子结构提取模块 + 子注意力模块的输出应该是原子尺度
+        x_node_h,x_line_h,h_g_node_list,h_g_line_list = self.drug_encoder(h_data)
         x_node_t, x_line_t,t_g_node_list,t_g_line_list = self.drug_encoder(t_data)
 
-
-        ##################
-
         x_node_h,x_node_t,x_line_h,x_line_t = self.hma(x_node_h,x_node_t,x_line_h,x_line_t,h_data, t_data)
-
-        #ablation for Fusion module
-        # x_node_h,x_node_t,x_line_h,x_line_t = global_add_pool(x_node_h,h_data.batch),global_add_pool(x_node_t,t_data.batch),global_add_pool(x_line_h,h_data.edge_index_batch),global_add_pool(x_line_t,t_data.edge_index_batch)
-
-        #
-
-        #################################################
 
         rep = torch.cat([x_node_h,x_line_h, x_node_t,x_line_t], dim=-1)
 
 
         rfeat = self.rmodule(rels)
 
-        logit = (self.lin(rep) * rfeat).sum(-1)# 97.5
-        #####################################################
-
-
-
-
+        logit = (self.lin(rep) * rfeat).sum(-1)
+        
         output = self.sigmoid(logit)
 
         return output,h_g_node_list,h_g_line_list,t_g_node_list,t_g_line_list
@@ -476,18 +405,12 @@ class nnModel2(torch.nn.Module):
 
         self.sigmoid = nn.Sigmoid()
 
-
-
-        #####################
-
         if args.dataset == 'drugbank' or args.dataset == 'ChChMiner':
             self.lin = nn.Sequential(
                 nn.Linear(hidden_dim * 4, hidden_dim * 8),
-                # nn.BatchNorm1d(hidden_dim*8),##这行去掉 for drugbank
                 nn.PReLU(),
                 nn.Dropout(0.2),
                 nn.Linear(hidden_dim * 8, hidden_dim * 4),
-                # nn.BatchNorm1d(hidden_dim*4),##这行去掉 for drugbank
                 nn.PReLU(),
                 nn.Dropout(0.2),
                 nn.Linear(hidden_dim * 4, hidden_dim),
@@ -495,11 +418,11 @@ class nnModel2(torch.nn.Module):
         elif args.dataset == 'twosides' or args.dataset == 'ZhangDDI' or args.dataset == 'DeepDDI':
             self.lin = nn.Sequential(
                 nn.Linear(hidden_dim * 4, hidden_dim * 8),
-                nn.BatchNorm1d(hidden_dim*8),##这行去掉 for drugbank
+                nn.BatchNorm1d(hidden_dim*8),
                 nn.PReLU(),
                 nn.Dropout(0.2),
                 nn.Linear(hidden_dim * 8, hidden_dim * 4),
-                nn.BatchNorm1d(hidden_dim*4),##这行去掉 for drugbank
+                nn.BatchNorm1d(hidden_dim*4),
                 nn.PReLU(),
                 nn.Dropout(0.2),
                 nn.Linear(hidden_dim * 4, hidden_dim),
@@ -507,30 +430,13 @@ class nnModel2(torch.nn.Module):
     def forward(self, triples):
         h_data, t_data = triples
 
-
-
-        x_node_h,x_line_h,h_g_node_list,h_g_line_list = self.drug_encoder(h_data)#子结构提取模块 + 子注意力模块的输出应该是原子尺度
+        x_node_h,x_line_h,h_g_node_list,h_g_line_list = self.drug_encoder(h_data)
         x_node_t, x_line_t,t_g_node_list,t_g_line_list = self.drug_encoder(t_data)
-
-
-        ##################
 
         x_node_h,x_node_t,x_line_h,x_line_t = self.hma(x_node_h,x_node_t,x_line_h,x_line_t,h_data, t_data)
 
-
-
-        #################################################
-
         rep = torch.cat([x_node_h,x_line_h, x_node_t,x_line_t], dim=-1)
-
-
-
-        logit = (self.lin(rep)).sum(-1)  # 97.5
-        #####################################################
-
-
-
-
+        logit = (self.lin(rep)).sum(-1) 
         output = self.sigmoid(logit)
 
         return output,h_g_node_list,h_g_line_list,t_g_node_list,t_g_line_list
@@ -549,11 +455,9 @@ class nnModel_MMDDI(torch.nn.Module):
         if args.dataset == 'drugbank' or args.dataset == 'ChChMiner' or args.dataset == 'MMDDI':
             self.lin = nn.Sequential(
                 nn.Linear(hidden_dim * 4, hidden_dim * 8),
-                # nn.BatchNorm1d(hidden_dim*8),##这行去掉 for drugbank
                 nn.PReLU(),
                 nn.Dropout(0.2),
                 nn.Linear(hidden_dim * 8, hidden_dim * 4),
-                # nn.BatchNorm1d(hidden_dim*4),##这行去掉 for drugbank
                 nn.PReLU(),
                 nn.Dropout(0.2),
                 nn.Linear(hidden_dim * 4, 4),
@@ -561,11 +465,11 @@ class nnModel_MMDDI(torch.nn.Module):
         elif args.dataset == 'twosides' or args.dataset == 'ZhangDDI' or args.dataset == 'DeepDDI':
             self.lin = nn.Sequential(
                 nn.Linear(hidden_dim * 4, hidden_dim * 8),
-                nn.BatchNorm1d(hidden_dim*8),##这行去掉 for drugbank
+                nn.BatchNorm1d(hidden_dim*8),
                 nn.PReLU(),
                 nn.Dropout(0.2),
                 nn.Linear(hidden_dim * 8, hidden_dim * 4),
-                nn.BatchNorm1d(hidden_dim*4),##这行去掉 for drugbank
+                nn.BatchNorm1d(hidden_dim*4),
                 nn.PReLU(),
                 nn.Dropout(0.2),
                 nn.Linear(hidden_dim * 4, 4),
@@ -573,30 +477,16 @@ class nnModel_MMDDI(torch.nn.Module):
     def forward(self, triples):
         h_data, t_data = triples
 
-
-
-        x_node_h,x_line_h,h_g_node_list,h_g_line_list = self.drug_encoder(h_data)#子结构提取模块 + 子注意力模块的输出应该是原子尺度
+        x_node_h,x_line_h,h_g_node_list,h_g_line_list = self.drug_encoder(h_data)
         x_node_t, x_line_t,t_g_node_list,t_g_line_list = self.drug_encoder(t_data)
 
-
-        ##################
-
         x_node_h,x_node_t,x_line_h,x_line_t = self.hma(x_node_h,x_node_t,x_line_h,x_line_t,h_data, t_data)
-
-
-
         #################################################
 
         rep = torch.cat([x_node_h,x_line_h, x_node_t,x_line_t], dim=-1)
 
-
-
         logit = self.lin(rep)
-        #####################################################
-
-
-
-
+        ##################################################
         output = logit
 
         return output,h_g_node_list,h_g_line_list,t_g_node_list,t_g_line_list
@@ -615,11 +505,9 @@ class nnModel_AUC_FC(torch.nn.Module):
         if args.dataset == 'drugbank' or args.dataset == 'ChChMiner' or args.dataset == 'MMDDI' or args.dataset == 'AUC_FC':
             self.lin = nn.Sequential(
                 nn.Linear(hidden_dim * 4, hidden_dim * 8),
-                # nn.BatchNorm1d(hidden_dim*8),##这行去掉 for drugbank
                 nn.PReLU(),
                 nn.Dropout(0.2),
                 nn.Linear(hidden_dim * 8, hidden_dim * 4),
-                # nn.BatchNorm1d(hidden_dim*4),##这行去掉 for drugbank
                 nn.PReLU(),
                 nn.Dropout(0.2),
                 nn.Linear(hidden_dim * 4, hidden_dim),
@@ -627,11 +515,11 @@ class nnModel_AUC_FC(torch.nn.Module):
         elif args.dataset == 'twosides' or args.dataset == 'ZhangDDI' or args.dataset == 'DeepDDI':
             self.lin = nn.Sequential(
                 nn.Linear(hidden_dim * 4, hidden_dim * 8),
-                nn.BatchNorm1d(hidden_dim*8),##这行去掉 for drugbank
+                nn.BatchNorm1d(hidden_dim*8),
                 nn.PReLU(),
                 nn.Dropout(0.2),
                 nn.Linear(hidden_dim * 8, hidden_dim * 4),
-                nn.BatchNorm1d(hidden_dim*4),##这行去掉 for drugbank
+                nn.BatchNorm1d(hidden_dim*4),
                 nn.PReLU(),
                 nn.Dropout(0.2),
                 nn.Linear(hidden_dim * 4, hidden_dim),
@@ -639,29 +527,17 @@ class nnModel_AUC_FC(torch.nn.Module):
     def forward(self, triples):
         h_data, t_data = triples
 
-
-
-        x_node_h,x_line_h,h_g_node_list,h_g_line_list = self.drug_encoder(h_data)#子结构提取模块 + 子注意力模块的输出应该是原子尺度
+        x_node_h,x_line_h,h_g_node_list,h_g_line_list = self.drug_encoder(h_data)
         x_node_t, x_line_t,t_g_node_list,t_g_line_list = self.drug_encoder(t_data)
 
 
-        ##################
-
         x_node_h,x_node_t,x_line_h,x_line_t = self.hma(x_node_h,x_node_t,x_line_h,x_line_t,h_data, t_data)
-
-
-
-        #################################################
 
         rep = torch.cat([x_node_h,x_line_h, x_node_t,x_line_t], dim=-1)
 
 
 
         logit = self.lin(rep)
-        #####################################################
-
-
-
 
         output = logit.sum(-1)
 
