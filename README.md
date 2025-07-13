@@ -49,7 +49,7 @@ For _MMDDI_ and _DDInter_ datasets:
 
 `python test_MMDDI.py`
 
-For _AUC_FC_ and _AUC_FC_External_:
+For _AUC_FC_ and _AUC_FC_External_ datasets:
 
 `python test_AUC_FC.py`
 
