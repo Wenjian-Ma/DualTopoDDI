@@ -3,9 +3,7 @@ import argparse
 from utils import read_pickle,split_train_valid,DrugDataset1,DrugDataset2,DrugDataLoader,CustomData
 import pandas as pd
 import torch
-# from SA_DDI import nnModel2
 from model import nnModel,nnModel2
-# from layer import nnModel
 import torch.optim as optim
 import torch
 import torch.nn as nn
@@ -35,21 +33,12 @@ def train_nn_warm(model,train_loader,valid_loader, test_loader,device,args,lambd
             else:
                 head_pairs, tail_pairs, label = [d.to(device) for d in data]
                 pred, h_g_node_list, h_g_line_list, t_g_node_list, t_g_line_list = model((head_pairs, tail_pairs))
-            # pred = model((head_pairs, tail_pairs, rel))
-
-
-            ###################
 
             cl_loss = (InfoNCE(h_g_node_list,h_g_line_list,device=device)+InfoNCE(t_g_node_list,t_g_line_list,device=device))
-            ###################
-
 
             bce_loss = criterion(pred, label)
 
-            ###################
             loss = lambda1*bce_loss + lambda2*cl_loss
-            ####################
-
 
             optimizer.zero_grad()
             loss.backward()
@@ -64,7 +53,7 @@ def train_nn_warm(model,train_loader,valid_loader, test_loader,device,args,lambd
         total_acc = total_acc/(idx+1)
         total_loss = total_loss/(idx+1)
         total_cl_loss = total_cl_loss/(idx+1)
-        ######################
+
         model.eval()
         pred_list = []
         label_list = []
@@ -81,14 +70,8 @@ def train_nn_warm(model,train_loader,valid_loader, test_loader,device,args,lambd
                     head_pairs, tail_pairs, label = [d.to(device) for d in data]
                     pred, _, _, _, _ = model((head_pairs, tail_pairs))
 
-                ###################
-
-                ####################
-
-
                 loss = criterion(pred, label)
 
-                # pred_cls = torch.sigmoid(pred)
                 pred_list.append(pred.view(-1).detach().cpu().numpy())
                 label_list.append(label.detach().cpu().numpy())
 
@@ -103,7 +86,7 @@ def train_nn_warm(model,train_loader,valid_loader, test_loader,device,args,lambd
         epoch+1, total_loss, total_acc, total_loss_test, acc, auroc, f1_score, precision, recall, ap)
 
         print(msg1)
-        #########################
+        
         model.eval()
         pred_list = []
         label_list = []
@@ -119,13 +102,6 @@ def train_nn_warm(model,train_loader,valid_loader, test_loader,device,args,lambd
                 else:
                     head_pairs, tail_pairs, label = [d.to(device) for d in data]
                     pred, _, _, _, _ = model((head_pairs, tail_pairs))
-
-                #pred = model((head_pairs, tail_pairs, rel))
-
-                ###################
-
-                ####################
-
 
                 loss = criterion(pred, label)
 
