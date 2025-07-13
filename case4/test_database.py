@@ -23,25 +23,18 @@ class nnModel3(torch.nn.Module):
 
         self.hma = hierarchical_mutual_attn(hidden_dim)
 
-
-
-
-        self.rmodule = nn.Embedding(1316, hidden_dim)#86 963
+        self.rmodule = nn.Embedding(1316, hidden_dim)
 
         self.sigmoid = nn.Sigmoid()
-
-
 
         #####################
 
         if args.dataset == 'drugbank':
             self.lin = nn.Sequential(
                 nn.Linear(hidden_dim * 4, hidden_dim * 8),
-                # nn.BatchNorm1d(hidden_dim*8),##这行去掉 for drugbank
                 nn.PReLU(),
                 nn.Dropout(0.2),
                 nn.Linear(hidden_dim * 8, hidden_dim * 4),
-                # nn.BatchNorm1d(hidden_dim*4),##这行去掉 for drugbank
                 nn.PReLU(),
                 nn.Dropout(0.2),
                 nn.Linear(hidden_dim * 4, hidden_dim),
@@ -49,11 +42,11 @@ class nnModel3(torch.nn.Module):
         elif args.dataset == 'twosides':
             self.lin = nn.Sequential(
                 nn.Linear(hidden_dim * 4, hidden_dim * 8),
-                nn.BatchNorm1d(hidden_dim*8),##这行去掉 for drugbank
+                nn.BatchNorm1d(hidden_dim*8),
                 nn.PReLU(),
                 nn.Dropout(0.2),
                 nn.Linear(hidden_dim * 8, hidden_dim * 4),
-                nn.BatchNorm1d(hidden_dim*4),##这行去掉 for drugbank
+                nn.BatchNorm1d(hidden_dim*4),
                 nn.PReLU(),
                 nn.Dropout(0.2),
                 nn.Linear(hidden_dim * 4, hidden_dim),
@@ -61,33 +54,17 @@ class nnModel3(torch.nn.Module):
     def forward(self, triples):
         h_data, t_data, rels = triples
 
-
-
-        x_node_h,x_line_h,h_g_node_list,h_g_line_list = self.drug_encoder(h_data)#子结构提取模块 + 子注意力模块的输出应该是原子尺度
+        x_node_h,x_line_h,h_g_node_list,h_g_line_list = self.drug_encoder(h_data)
         x_node_t, x_line_t,t_g_node_list,t_g_line_list = self.drug_encoder(t_data)
 
-
-        ##################
-
         x_node_h,x_node_t,x_line_h,x_line_t = self.hma(x_node_h,x_node_t,x_line_h,x_line_t,h_data, t_data)
-
-        #ablation for Fusion module
-        # x_node_h,x_node_t,x_line_h,x_line_t = global_add_pool(x_node_h,h_data.batch),global_add_pool(x_node_t,t_data.batch),global_add_pool(x_line_h,h_data.edge_index_batch),global_add_pool(x_line_t,t_data.edge_index_batch)
-
-        #
-
-        #################################################
 
         rep = torch.cat([x_node_h,x_line_h, x_node_t,x_line_t], dim=-1)
 
 
         rfeat = self.rmodule(rels)
 
-        logit = (self.lin(rep) * rfeat).sum(-1)# 97.5
-        #####################################################
-
-
-
+        logit = (self.lin(rep) * rfeat).sum(-1)
 
         output = self.sigmoid(logit)
 
@@ -102,15 +79,10 @@ class CustomData(Data):
     Since we have converted the node graph to the line graph, we should specify the increase of the index as well.
     '''
     def __inc__(self, key, value, *args, **kwargs):
-    # In case of "TypeError: __inc__() takes 3 positional arguments but 4 were given"
-    # Replace with "def __inc__(self, key, value, *args, **kwargs)"
+    
         if key == 'line_graph_edge_index':
             return self.edge_index.size(1) if self.edge_index.nelement()!=0 else 0
         return super().__inc__(key, value, *args, **kwargs)
-        # In case of "TypeError: __inc__() takes 3 positional arguments but 4 were given"
-        # Replace with "return super().__inc__(self, key, value, args, kwargs)"
-
-
 
 class DrugDataset2(Dataset):
     def __init__(self, data_df, drug_graph,args):
@@ -123,9 +95,6 @@ class DrugDataset2(Dataset):
 
     def __getitem__(self, index):
         return self.data_df.iloc[index]
-
-    # def _create_b_graph(self,edge_index,x_h, x_t):
-    #     return BipartiteData(edge_index,x_h,x_t)
 
     def collate_fn(self, batch):
         head_list = []
@@ -153,10 +122,7 @@ class DrugDataset2(Dataset):
 
 def test_nn_warm(model, test_loader, device, args,rel_dict):
     model.eval()
-    # pred_list = []
-    # h_id = []
-    # t_id = []
-    # rel_list = []
+    
     with torch.no_grad():
         for idx, data in enumerate(tqdm(test_loader, mininterval=0.5, desc='Evaluating', leave=False, ncols=50)):
             if len(data[2]) == 0:
@@ -205,14 +171,13 @@ def test(args):
         for line in f:
             id = line.strip().split(',')[0]
             smiles = line.strip().split(',')[1]
-            # mol = rdkit.Chem.MolFromSmiles(smiles)
+    
             approved_drug[id] = smiles
-    # approved_drug = {key: value for i, (key, value) in enumerate(approved_drug.items()) if i < 10}
+    
     test_df = []
     rel_dict = {}
     if args.dataset == 'drugbank':
 
-        ############################
         rel_dict = get_rel_dict(args.dataset)
         rel_dict_reverse = {j: i for i, j in rel_dict.items()}
 
@@ -222,7 +187,7 @@ def test(args):
                 b = line.strip().split(',')[1]
                 c = rel_dict_reverse[line.strip().split(',')[2]]
                 d = line.strip().split(',')[3]
-        #############################
+
         mark = 0
         for i,smiles_i in tqdm(approved_drug.items()):
             for j,smiles_j in approved_drug.items():
@@ -248,9 +213,7 @@ def test(args):
         for i,smiles_i in tqdm(list(approved_drug.items())[1600:]):
             for j,smiles_j in approved_drug.items():
                 for k in range(1316):
-                    # if i == a and j == b and k == int(c):
-                    #     mark = 1
-                    #     continue
+                
                     if i!=j:
                         test_df.append([i,j,smiles_i,smiles_j,k])
 
@@ -268,7 +231,7 @@ def test(args):
                 if i != j:
                     test_df.append([i,j,smiles_i,smiles_j,0])
         test_df = pd.DataFrame(test_df, columns=['ID1','ID2','X1','X2', 'Y'])
-        # test_df = pd.read_csv(os.path.join(root, args.dataset+'_test.csv'))
+        
         test_set = DrugDataset2(test_df, drug_graph, args)
         test_loader = DrugDataLoader(test_set, batch_size=batch_size, shuffle=False, num_workers=args.num_workers)
     else:
@@ -277,7 +240,7 @@ def test(args):
     data = next(iter(test_loader))
 
     node_dim = data[0].x.size(-1)
-    edge_dim = 6  # data[0].edge_attr.size(-1)
+    edge_dim = 6  
 
     if args.dataset == 'twosides':
         args.heads = 1
