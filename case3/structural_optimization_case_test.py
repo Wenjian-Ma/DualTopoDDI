@@ -1,5 +1,3 @@
-#回归case  替换原子或官能团后的药物分子能够减轻CYP酶的抑制，导致受害者药物的血浆浓度降低
-
 import time,sys
 import warnings, os
 import argparse
@@ -34,13 +32,6 @@ def test_nn(model, test_loader,device):
     pred_probs = np.concatenate(pred_list, axis=0).flatten()
     label = np.concatenate(label_list, axis=0)
 
-    # ret_test = [rmse(label, pred_probs), mse(label, pred_probs), pearson(label, pred_probs),
-    #             spearman(label, pred_probs), ci(label, pred_probs)]
-    # msg1 = "RMSE-%.4f,MSE-%.4f,Pearson-%.4f,Spearman-%.4f,CI-%.4f" % (ret_test[0], ret_test[1], ret_test[2], ret_test[3], ret_test[4])
-    #
-    # print(msg1)
-    # print()
-
     return pred_probs
 
 def test_MMDDI(args):
@@ -53,7 +44,6 @@ def test_MMDDI(args):
 
     Paroxetine = pd.read_csv(os.path.join(root, f'Paroxetine.csv'), delimiter=',')
     Itraconazole = pd.read_csv(os.path.join(root, f'Itraconazole.csv'), delimiter=',')
-    # Paroxetine['Y'] = fold5['Y'].apply(lambda x: np.log2(x))
 
     if drug == 'Paroxetine':
         test_df = Paroxetine
@@ -61,11 +51,7 @@ def test_MMDDI(args):
     elif drug == 'Itraconazole':
         test_df = Itraconazole
         mark = int(Itraconazole.shape[0] / 4)
-    # for i in range(5):
 
-    # i=1
-
-    # print('#' * 15, 'model ', i + 1, '#' * 15)
     test_set = DrugDataset2(test_df, drug_graph, args)
     test_loader = DrugDataLoader(test_set, batch_size=batch_size, shuffle=False, num_workers=args.num_workers)
 
