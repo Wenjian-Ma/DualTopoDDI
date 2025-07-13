@@ -102,7 +102,7 @@ def generate_drug_data(id,mol_graph, atom_symbols):
 
 def save_data(data):
 
-    filename = '/media/ST-18T/Ma/HA-DDI/data/preprocessed/case/drug_data.pkl'
+    filename = '/media/ST-18T/Ma/TIDE/data/preprocessed/case/drug_data.pkl'
     with open(filename, 'wb') as f:
         pickle.dump(data, f)
     print(f'\nData saved as {filename}!')
@@ -110,11 +110,11 @@ def save_data(data):
 
 def load_drug_mol_data():
 
-    data1 = pd.read_csv('/media/ST-18T/Ma/HA-DDI/data/preprocessed/AUC_FC/fold1.csv', delimiter=',')
-    data2 = pd.read_csv('/media/ST-18T/Ma/HA-DDI/data/preprocessed/AUC_FC/fold2.csv', delimiter=',')
-    data3 = pd.read_csv('/media/ST-18T/Ma/HA-DDI/data/preprocessed/AUC_FC/fold3.csv', delimiter=',')
-    data4 = pd.read_csv('/media/ST-18T/Ma/HA-DDI/data/preprocessed/AUC_FC/fold4.csv', delimiter=',')
-    data5 = pd.read_csv('/media/ST-18T/Ma/HA-DDI/data/preprocessed/AUC_FC/fold5.csv', delimiter=',')
+    data1 = pd.read_csv('/media/ST-18T/Ma/TIDE/data/preprocessed/AUC_FC/fold1.csv', delimiter=',')
+    data2 = pd.read_csv('/media/ST-18T/Ma/TIDE/data/preprocessed/AUC_FC/fold2.csv', delimiter=',')
+    data3 = pd.read_csv('/media/ST-18T/Ma/TIDE/data/preprocessed/AUC_FC/fold3.csv', delimiter=',')
+    data4 = pd.read_csv('/media/ST-18T/Ma/TIDE/data/preprocessed/AUC_FC/fold4.csv', delimiter=',')
+    data5 = pd.read_csv('/media/ST-18T/Ma/TIDE/data/preprocessed/AUC_FC/fold5.csv', delimiter=',')
 
     data = pd.concat([data1,data2,data3,data4,data5])
 
@@ -128,7 +128,7 @@ def load_drug_mol_data():
 
     #######for external AUC_FC##########
 
-    with open('/media/ST-18T/Ma/HA-DDI/data/preprocessed/AUC_FC/External.csv') as f:
+    with open('/media/ST-18T/Ma/TIDE/data/preprocessed/AUC_FC/External.csv') as f:
         for id,line in enumerate(f):
             if id ==0:
                 continue
@@ -143,7 +143,7 @@ def load_drug_mol_data():
 
     # #######for external DDInter##########
     #
-    # with open('/media/ST-18T/Ma/HA-DDI/data/preprocessed/MMDDI/DDInter.csv') as f:
+    # with open('/media/ST-18T/Ma/TIDE/data/preprocessed/MMDDI/DDInter.csv') as f:
     #     for id, line in enumerate(f):
     #         if id == 0:
     #             continue
@@ -154,7 +154,7 @@ def load_drug_mol_data():
     #         drug_smile_dict[id1] = smiles1
     #         drug_smile_dict[id2] = smiles2
     # ##################################################################
-    # with open('/media/ST-18T/Ma/HA-DDI/data/preprocessed/case/ddi_for_58.csv') as f:
+    # with open('/media/ST-18T/Ma/TIDE/data/preprocessed/case/ddi_for_58.csv') as f:
     #     for id, line in enumerate(f):
     #         if id == 0:
     #             continue
