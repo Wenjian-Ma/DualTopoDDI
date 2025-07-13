@@ -32,7 +32,7 @@ def train_nn_warm(model,train_loader,valid_loader, test_loader,device,args):
             
             bce_loss = criterion(pred, label)
 
-            loss = bce_loss + 0.2*cl_loss
+            loss = bce_loss + 0.4*cl_loss
             
             optimizer.zero_grad()
             loss.backward()
@@ -149,7 +149,7 @@ def train_nn_cold(model,train_loader, valid_loader,test_loader,device,args):
 
             bce_loss = criterion(pred, label)
 
-            loss = bce_loss + cl_loss*0.2
+            loss = bce_loss + cl_loss*0.4
 
             optimizer.zero_grad()
             loss.backward()
