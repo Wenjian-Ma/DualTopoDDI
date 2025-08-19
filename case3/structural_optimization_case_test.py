@@ -37,7 +37,7 @@ def test_nn(model, test_loader,device):
 def test_MMDDI(args):
     drug = 'Paroxetine'#Paroxetine/Itraconazole
 
-    root = '/media/ST-18T/Ma/TIDE/data/preprocessed/case3'
+    root = '/media/ST-18T/Ma/DualTopoDDI/data/preprocessed/case3'
     batch_size = args.batch_size
 
     drug_graph = read_pickle(os.path.join(root, 'drug_data.pkl'))
@@ -64,7 +64,7 @@ def test_MMDDI(args):
 
     model = nnModel_AUC_FC(node_dim, edge_dim, n_iter=args.n_iter, args=args).to(device)
 
-    model_path = '/media/ST-18T/Ma/TIDE/data/preprocessed/case3/model.pkl'
+    model_path = '/media/ST-18T/Ma/DualTopoDDI/data/preprocessed/case3/model.pkl'
 
     model.load_state_dict(torch.load(model_path, map_location=device))
 
@@ -77,7 +77,7 @@ def test_MMDDI(args):
     torch.cuda.empty_cache()
 
 
-    with open('/media/ST-18T/Ma/TIDE/data/preprocessed/case3/' + drug + '_result1.csv', 'a') as f:
+    with open('/media/ST-18T/Ma/DualTopoDDI/data/preprocessed/case3/' + drug + '_result1.csv', 'a') as f:
         for i in range(pred_probs.shape[0]):
             for j in range(pred_probs.shape[1]):
                 f.write(str(pred_probs[i][j])+',')
@@ -105,3 +105,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
     print(args)
     test_MMDDI(args)
+
