@@ -1,4 +1,4 @@
-# TIDE
+# DualTopoDDI
 Code for paper "XXX"
 ---
 
