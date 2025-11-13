@@ -1,5 +1,5 @@
 # DualTopoDDI
-Code for paper "XXX"
+Code for paper "Deciphering Mechanistic Signatures in Drug-Drug Interactions with Dual Topology Graphs"
 ---
 
 Dependencies
