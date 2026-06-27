@@ -53,6 +53,17 @@ For _AUC_FC_ and _AUC_FC_External_ datasets:
 
 `python test_AUC_FC.py`
 
+Docker Image
+---
+
+We also provide the Dockerfile to build the environment, please refer to the Dockerfile for more details. Make sure you have Docker installed locally, and simply run following command:
+   ```shell
+   # Build the Docker image
+   sudo docker build -t ddi-image:v1 .
+   # Create and start the docker container
+   sudo docker run --name ddi-con --gpus all -it ddi-image:v1 /bin/bash
+   ```
+
 Train
 ---
 For _$dataset_ = _$DeepDDI/ZhangDDI/ChChMiner/drugbank/twosides_:
