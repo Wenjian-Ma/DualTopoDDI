@@ -1,0 +1,1316 @@
+0	hypermagnesemia
+1	retinopathy of prematurity
+2	atelectasis
+3	alkalosis
+4	Back Ache
+5	lung edema
+6	agitated
+7	abnormal movements
+8	Acidosis
+9	peliosis
+10	rupture of spleen
+11	Apnea
+12	Drug hypersensitivity
+13	flatulence
+14	pain in throat
+15	allergies
+16	thrombocytopenia
+17	bradycardia
+18	lung infiltration
+19	Bleeding
+20	hypoglycaemia neonatal
+21	Gastrointestinal Obstruction
+22	hyperglycaemia
+23	peritonitis
+24	hypoglycaemia
+25	abdominal distension
+26	asystole
+27	cerebral infarct
+28	hypoxia
+29	Difficulty breathing
+30	decreased body temperature
+31	adynamic ileus
+32	sepsis
+33	Hypomagnesaemia
+34	neonatal respiratory distress syndrome
+35	Acute Respiratory Distress Syndrome
+36	lipoma
+37	pelvic infection
+38	appendectomy
+39	flank pain
+40	pneumothorax
+41	appendicitis
+42	Strabismus
+43	Blood calcium decreased
+44	respiratory failure
+45	pulmonary hypertension
+46	Hypercapnia
+47	intestinal perforation
+48	leucocytosis
+49	Disorder Lung
+50	hot flash
+51	arterial pressure NOS decreased
+52	metabolic acidosis
+53	Bladder inflammation
+54	ascites
+55	patent ductus arteriosis
+56	sinus tachycardia
+57	stridor
+58	arterial pressure NOS increased
+59	Hypoventilation
+60	edema
+61	disease of liver
+62	Aspartate Aminotransferase Increase
+63	Cold extremities
+64	facial flushing
+65	anaphylactic reaction
+66	eruption
+67	acute pancreatitis
+68	neumonia
+69	adenocarcinoma
+70	confusion
+71	malnourished
+72	haemorrhoids
+73	still birth
+74	anaemia
+75	drug toxicity NOS
+76	increased white blood cell count
+77	encephalopathy
+78	Anorexia
+79	tremor
+80	Hallucination
+81	chronic obstructive airway disease
+82	drowsiness
+83	Head ache
+84	back injury
+85	erythema
+86	Diplopia
+87	enlarged spleen
+88	narcolepsy
+89	esophageal spasm
+90	erosive gastritis
+91	gastroenteritis viral
+92	Lymphocytes decreased
+93	Breast cancer
+94	itch
+95	haemolytic anaemia
+96	upper gastrointestinal bleeding
+97	icterus
+98	gastroenteritis
+99	optic disc edema
+100	sleep disorder
+101	septic shock
+102	bladder retention
+103	Aphonia
+104	Pain
+105	idiopathic thrombocytopenic purpura
+106	pneumonia staphylococcal
+107	alopecia
+108	conjunctivitis
+109	lobar pneumonia
+110	glomerulonephritis
+111	duodenal ulcer
+112	deep vein thromboses
+113	leucopenia
+114	rhinorrhea
+115	bursitis
+116	bleeding Vaginal
+117	Excoriation
+118	Ekbom Syndrome
+119	nephrocalcinosis
+120	blurred vision
+121	thrombotic microangiopathy
+122	dizziness
+123	pleurisy
+124	sunburn
+125	Hoarseness
+126	Bleeding hemorrhoids
+127	Fatigue
+128	aspiration pneumonia
+129	perirectal abscess
+130	diarrhea
+131	asthma
+132	skin lesion
+133	tinnitus
+134	muscle spasm
+135	fib
+136	Candida Infection
+137	Abnormal Gait
+138	glossodynia
+139	anal fissure
+140	Infection Viral
+141	cellulitis
+142	allergic dermatitis
+143	constipated
+144	Clotting
+145	muscle paresis
+146	deafness
+147	vocal cord paralysis
+148	dry skin
+149	ear discharge
+150	eye pain
+151	Leukaemia
+152	myopia
+153	Chronic Kidney Disease
+154	acute kidney failure
+155	retrocollis
+156	cognitive disorder
+157	Cholangitis
+158	hypothyroid
+159	dermatitides
+160	Abnormal LFTs
+161	dermatitis medicamentosa
+162	acute brain syndrome
+163	Deafness neurosensory
+164	fungal disease
+165	nasal sinus congestion
+166	Near Syncope
+167	erythema multiforme
+168	haematoma
+169	bleb
+170	nasal congestion
+171	amenorrhea
+172	epistaxis
+173	hepatitis
+174	coated tongue
+175	Neutropenia
+176	wheeze
+177	haemorrhage rectum
+178	abdominal pain
+179	chest pain
+180	Mycobacterium tuberculosis infection
+181	cholelithiasis
+182	pyoderma
+183	laryngeal neoplasia
+184	Blood disorder
+185	psychoses
+186	aching muscles
+187	abscess
+188	loss of consciousness
+189	attempted suicide
+190	bad breath
+191	Arthritis infective
+192	loss of weight
+193	nasopharyngitis
+194	belching
+195	Rhinitis
+196	Colon Spastic
+197	heart attack
+198	hepatic neoplasia
+199	azotaemia
+200	nervous tension
+201	muscle weakness
+202	hypochloraemia
+203	cataract
+204	abdominal pain upper
+205	insomnia
+206	dyspepsia
+207	asthenia
+208	emesis
+209	Embolism pulmonary
+210	biliary tract disorder
+211	colitis ischemic
+212	Extremity pain
+213	arteriosclerotic heart disease
+214	Small intestinal obstruction
+215	Paraesthesia
+216	neoplasia
+217	Fainting
+218	blood sodium decreased
+219	sneezing
+220	Feeling unwell
+221	hypokalaemia
+222	lower GI bleeding
+223	migraine
+224	intervertebral disc disorder
+225	osteoporosis
+226	High blood pressure
+227	road traffic accident
+228	diverticulosis
+229	Arthritis rheumatoid
+230	Abnormal vision
+231	arteriosclerosis
+232	bulging
+233	Osteoarthritis
+234	pleural pain
+235	acid reflux
+236	fibromyalgia
+237	breast pain
+238	palpitation
+239	herpes zoster
+240	Breast cyst
+241	myoglobinuria
+242	osteomalacia
+243	ischias
+244	Aching joints
+245	arthritis
+246	abuse
+247	colonic polyp
+248	cholecystitis
+249	Dyspnea exertional
+250	Extrasystoles Ventricular
+251	acne rosacea
+252	Incontinence
+253	gall bladder
+254	diabetic acidosis
+255	Diabetic Retinopathy
+256	blepharitis
+257	pyelonephritis
+258	aptyalism
+259	Blepharospasm
+260	aneurysm
+261	benign prostatic hyperplasia
+262	wrist fracture
+263	dislocation
+264	Superficial thrombophlebitis
+265	Decreased Libido
+266	decubitus ulcer
+267	kidney failure
+268	meningitides
+269	ild
+270	prostatism
+271	Atrioventricular block first degree
+272	Cough
+273	Vestibular disorder
+274	panic attack
+275	nightmare
+276	wandering atrial pacemaker
+277	Breast Lump
+278	nocturia
+279	spinning sensation
+280	Diabetes
+281	bronchitis
+282	polyp
+283	osteomyelitis
+284	lung fibrosis
+285	enlarged liver
+286	laceration
+287	coma
+288	amyotrophy
+289	cachectic
+290	renal cyst
+291	neuropathy peripheral
+292	collagenvascular disease
+293	Bacterial infection
+294	angiitis
+295	convulsion
+296	iron deficiency anaemia
+297	Cardiomyopathy
+298	bronchial spasm
+299	femur fracture
+300	fascitis plantar
+301	Cardiac decompensation
+302	mucositis oral
+303	joint swelling
+304	hernia
+305	glaucoma
+306	mitral valve disease NOS
+307	edema extremities
+308	pulmonary mass
+309	breast dysplasia
+310	Phlebitis
+311	lung neoplasms
+312	balance disorder
+313	bone marrow failure
+314	deglutition disorder
+315	adrenal insufficiency
+316	sensory disturbance
+317	polyneuropathy
+318	Nephrolithiasis
+319	dysarthria
+320	Hypotension Orthostatic
+321	Scoliosis
+322	autonomic instability
+323	rhabdomyolysis
+324	renal colic
+325	bundle branch block left
+326	apoplexy
+327	malabsorption
+328	aphasia
+329	Amnesia
+330	body temperature increased
+331	burning sensation
+332	chill
+333	phaeochromocytoma
+334	Infection Urinary Tract
+335	night sweat
+336	keratitis sicca
+337	dehydration
+338	Ataxia
+339	transient ischaemic attack
+340	cerebral haemorrhage
+341	Mod
+342	elevated cholesterol
+343	heart rate increased
+344	eye swelling
+345	psychosexual disorder
+346	Anxiety
+347	facial palsy
+348	fat embolism
+349	ureteral obstruction
+350	disorder Renal
+351	nephrosclerosis
+352	delirium tremens
+353	psoriatic arthritis
+354	post traumatic stress disorder
+355	laryngitis
+356	angiopathy
+357	flu
+358	coeliac disease
+359	adjustment disorder
+360	carcinoid syndrome
+361	nausea
+362	dysphasia
+363	drug withdrawal
+364	Pleural Effusion
+365	Sinusitis
+366	Bilirubinaemia
+367	amentia
+368	cerebral atrophy
+369	cervicalgia
+370	hyperlipaemia
+371	metabolic encephalopathy
+372	Diabetic Nephropathy
+373	encephalitis
+374	Intervertebral Disc Herniation
+375	Atherosclerosis
+376	aortic regurgitation
+377	Neuralgia
+378	hemiplegia
+379	pneumonia Klebsiella
+380	emphysema
+381	AFIB
+382	Postherpetic Neuralgia
+383	Eosinophil Count Increased
+384	Neuritis
+385	abnormal ECG
+386	Bone Fracture Spontaneous
+387	gingivitis
+388	soft tissue infection
+389	floaters
+390	thyroid neoplasia
+391	dental abscess
+392	dental pain
+393	aseptic necrosis bone
+394	bruxism
+395	retinal bleeding
+396	gingival pain
+397	bone inflammation
+398	candidiasis of mouth
+399	tooth disease
+400	mouth pain
+401	arthropathy
+402	pericardial effusion
+403	lung neoplasm malignant
+404	infection
+405	blindness
+406	herpes simplex
+407	blood in urine
+408	Acute myeloblastic leukemia
+409	abnormal EEG
+410	gastric inflammation
+411	Transfusion reaction
+412	abortion spontaneous
+413	urosepsis
+414	eating disorder
+415	schizophrenia
+416	cardiac murmur
+417	cardiac enlargement
+418	proteinuria
+419	increased platelet count
+420	odynophagia
+421	multiple sclerosis
+422	intraocular inflammation
+423	weight gain
+424	Convulsions Grand Mal
+425	Enuresis
+426	bundle branch block right
+427	Personality disorder
+428	salivary gland inflammation
+429	pregnancy induced hypertension
+430	cervicitis
+431	hernia hiatal
+432	cervical dysplasia
+433	adenitis
+434	ecchymoses
+435	tardive dyskinesia
+436	blood pressure abnormal
+437	muscle strain
+438	uterine infection
+439	Ejaculation Premature
+440	excessive thirst
+441	ear ache
+442	elevated erythrocyte sedimentation rate
+443	Blood Calcium Increased
+444	joint stiffness
+445	phobia
+446	esophagitis
+447	nephrotic syndrome
+448	proctalgia
+449	bone pain
+450	contracture
+451	proctitis
+452	spondylitis
+453	spondylosis
+454	dyspareunia
+455	hyperparathyroidism
+456	sleep apnea
+457	Raynauds phenomenon
+458	wound dehiscence
+459	portal vein thrombosis
+460	head injury
+461	Arachnoiditis
+462	synovitis
+463	hyperhidrosis
+464	nystagmus
+465	gastrointestinal bleed
+466	apraxia
+467	Rectal Tenesmus
+468	amyloidosis
+469	Drug addiction
+470	prostatitis
+471	femoral neck fracture
+472	sleep walking
+473	monoclonal gammopathy
+474	bruise
+475	Scar
+476	cardiac disease
+477	pain pelvic
+478	hip fracture
+479	difficulty in walking
+480	panic disorder
+481	atrial septal defect
+482	Tendinitis
+483	obstructive uropathy
+484	Colpitis
+485	Rhagades
+486	bone spur
+487	pancreatitis
+488	allergic rhinitis
+489	otitis media
+490	intestinal functional disorder
+491	faecal incontinence
+492	carpal tunnel
+493	haematochezia
+494	ADH inappropriate
+495	neuropathy
+496	Chest infection
+497	radiculopathy
+498	dysphonia
+499	myelopathy
+500	black stools
+501	dysuria
+502	flashing lights
+503	Electrolyte disorder
+504	Decreased hearing
+505	mitral valve prolapse
+506	fatty liver
+507	mouth bleeding
+508	bipolar disorder
+509	embolism
+510	duodenitis
+511	malignant melanoma
+512	ear infection
+513	sinus bradycardia
+514	atrial ectopic beats
+515	external ear infection
+516	muscle inflammation
+517	cervical vertebral fracture
+518	hydronephrosis
+519	dental caries
+520	elevated prostate specific antigen
+521	mouth ulcer
+522	gastroduodenal ulcer
+523	fistula
+524	acute bronchitis
+525	gynaecomastia
+526	Hypophosphataemia
+527	Excess potassium
+528	esophageal ulcer
+529	renal tubular acidosis
+530	phlebothrombosis
+531	dysaesthesia
+532	goiter
+533	metabolic alkalosis
+534	Adenopathy
+535	tympanic membrane perforation
+536	Arrhythmia
+537	Hepatic failure
+538	hyperalimentation
+539	Spinal fracture
+540	Parkinson
+541	movement disorder
+542	macula lutea degeneration
+543	musculoskeletal pain
+544	psychosomatic disease
+545	Cardiac ischemia
+546	paranoia
+547	retinal degeneration
+548	chronic sinusitis
+549	ulcer
+550	rib fracture
+551	rotator cuff syndrome
+552	impetigo
+553	fractured pelvis NOS
+554	Infection Upper Respiratory
+555	angioedema
+556	sick sinus syndrome
+557	hyperthyroidism
+558	cardiac failure
+559	atrioventricular block second degree
+560	pharyngeal inflammation
+561	adenoma
+562	epilepsy
+563	sinus arrest
+564	angina
+565	muscle disorder
+566	bundle branch block
+567	tachycardia ventricular
+568	melanocytic naevus
+569	cramp
+570	atrial flutter
+571	cardiovascular collapse
+572	hypernatraemia
+573	hive
+574	MPD
+575	syncope vasovagal
+576	streptococcal infection
+577	aspergillosis
+578	Light sensitivity
+579	enteritis
+580	bone marrow transplant
+581	SCLC
+582	colitis
+583	elevated triglycerides
+584	Glucose intolerance
+585	Multiple Myeloma
+586	duodenal ulcer haemorrhage
+587	CMV infection
+588	hemiparesis
+589	polymyositis
+590	Bacteraemia
+591	onychomycosis
+592	carcinoma of the colon
+593	traumatic arthropathy
+594	myocarditis
+595	cardiac valvulopathy
+596	endocarditis
+597	Atrioventricular block complete
+598	ventricular fibrillation
+599	gangrene
+600	ischaemia
+601	ADVERSE DRUG EFFECT
+602	defaecation urgency
+603	cirrhosis
+604	trigeminal neuralgia
+605	hordeolum
+606	polyuria
+607	periodontal disease
+608	obesity
+609	glucosuria
+610	basal cell carcinoma
+611	pulmonary arrest
+612	haematemesis
+613	granuloma
+614	meningeal irritation
+615	Salmonella
+616	insulin dependent diabetes mellitus
+617	failure to thrive
+618	Cardiac tamponade
+619	ankle fracture
+620	hepatitis toxic
+621	endocrine disorder
+622	Sinus headache
+623	renal abscess
+624	diverticulitis
+625	dermatitis exfoliative
+626	gastric dilatation
+627	distended bladder
+628	pancreatitis relapsing
+629	Thrombophlebitis
+630	nasal septal perforation
+631	shoulder pain
+632	Abnormal Laboratory Findings
+633	Polio
+634	duodenal ulcer perforation
+635	joint effusion
+636	ventricular septal defect
+637	gouty arthritis
+638	Supraventricular tachycardia
+639	respiratory alkalosis
+640	haemorrhage intracranial
+641	major depression
+642	excessive sleepiness
+643	lymphoma
+644	substance abuse
+645	animal bite
+646	cerebral vascular disorder
+647	dry eye
+648	Ovarian Cyst
+649	micturition urgency
+650	Stress incontinence
+651	hesitancy
+652	bone fracture
+653	nodule
+654	cyst
+655	Abdominal hernia
+656	Scleroderma
+657	Cor pulmonale
+658	excessive salivation
+659	right heart failure
+660	subarachnoid haemorrhage
+661	cancer
+662	soft tissue injuries
+663	colitis pseudomembranous
+664	heavy menstrual period
+665	premature menopause
+666	umbilical hernia
+667	psoriasis
+668	contact dermatitis
+669	blepharoptosis
+670	Bleeding gums
+671	epicondylitis
+672	ingrowing nail
+673	dermatitis seborrheic
+674	candidiasis of vagina
+675	Spinal Compression Fracture
+676	palsies
+677	petit mal
+678	gout
+679	cerebral ischaemia
+680	eyelid diseases
+681	gastric ulcer
+682	periodontitis
+683	Lyell
+684	seborrhoeic keratosis
+685	actinic keratosis
+686	choking
+687	dyshidrosis
+688	aortic stenosis
+689	coughing blood
+690	radiation pneumonitis
+691	Glossitis
+692	bacterial pneumonia
+693	alcohol consumption
+694	squamous cell carcinoma of skin
+695	pancreatic cancer
+696	Tenosynovitis
+697	liver abscess
+698	myelodysplasia
+699	rectal polyp
+700	brain concussion
+701	cutaneous ulcer
+702	menometrorrhagia
+703	face pain
+704	atrioventricular block
+705	breast enlargement
+706	Eustachian tube disorder
+707	macroglossia
+708	flashbacks
+709	acute sinusitis
+710	Pelvic Inflammatory Disease
+711	Altered Bowel Function
+712	antinuclear antibody positive
+713	galactorrhea
+714	schizoaffective disorder
+715	borderline personality disorder
+716	injury of neck
+717	Pharyngitis Streptococcal
+718	Nephrogenic diabetes insipidus
+719	hepatic necrosis
+720	portal hypertension
+721	Diabetic neuropathy
+722	brain neoplasm
+723	reflux esophagitis
+724	Breakthrough bleeding
+725	hair disease
+726	Seroma
+727	trigger finger
+728	Interstitial nephritis
+729	Nail disorder
+730	allergic vasculitis
+731	lichen planus
+732	keratoacanthomas
+733	milia
+734	carotid artery stenosis
+735	gastric polyps
+736	hyperkeratosis
+737	toxic shock
+738	dermoid cyst
+739	essential hypertension
+740	hepatitis B
+741	tetralogy of Fallot
+742	congenital heart disease
+743	hepatitis B surface antigen positive
+744	colon neoplasm
+745	cholecystectomies
+746	Carcinoma of Prostate
+747	orthopnea
+748	renal mass
+749	Breast disorder
+750	disseminated lupus erythematosus
+751	Onycholysis
+752	breast tenderness
+753	mixed connective tissue disease
+754	breast discharge
+755	Disorder Peripheral Vascular
+756	limb malformation
+757	Hyperprolactinaemia
+758	meningocele
+759	acute psychosis
+760	ketoacidosis
+761	sarcoidosis
+762	Detached retina
+763	eosinophilic pneumonia
+764	Chest wall pain
+765	tonsillar hypertrophy
+766	acanthosis nigricans
+767	hyperpigmentation
+768	costochondritis
+769	agoraphobia
+770	cheilosis
+771	Easy bruisability
+772	OPTIC NEURITIS
+773	eye injury
+774	scotoma
+775	eczema
+776	tracheostomy
+777	Muscle Rupture
+778	bone sarcoma
+779	neuroblastoma
+780	mediastinal tumor
+781	erysipelas
+782	paraparesis
+783	color blindness
+784	hepatorenal syndrome
+785	Hepatitis C
+786	eye infection
+787	EBV infection
+788	Caesarean Section
+789	agranulocytoses
+790	petechia
+791	hematoma subdural
+792	glioma
+793	pyoderma gangrenosum
+794	benign intracranial hypertension
+795	cerebral artery embolism
+796	hydrocephalus
+797	hypogammaglobulinaemia
+798	Acne
+799	malignant hypertension
+800	acute otitis media
+801	Post nasal drip
+802	labyrinthitis
+803	Nodule Skin
+804	atrophy of skin
+805	neck mass
+806	tracheitis
+807	adenomyosis
+808	rheumatic heart disease
+809	Vitamin D Deficiency
+810	kidney pain
+811	hyperuricaemia
+812	splenectomy
+813	atypical mycobacterial infection
+814	parotitis
+815	choreoathetosis
+816	Disorder Retinal
+817	pericarditis
+818	cerumen impaction
+819	vitiligo
+820	paronychia
+821	colostomy
+822	Tooth Impacted
+823	thyroid disease
+824	aortic aneurysm
+825	dermatomyositis
+826	hyperaesthesia
+827	als
+828	cerebral palsy
+829	spider angioma
+830	bronchiectasis
+831	encephalopathy hypertensive
+832	retinal scar
+833	aplasia pure red cell
+834	anaemia hypochromic
+835	furuncle
+836	periostitis
+837	birth defect
+838	cerebellar ataxia
+839	autonomic neuropathy
+840	corneal disorder
+841	polymyalgia rheumatica
+842	diaphragmatic hernia
+843	lymphedema
+844	coronary artery bypass graft
+845	pleural fibrosis
+846	temporal arteritis
+847	polyarthritis
+848	phimosis
+849	Lacrimal Disorder
+850	fecal occult blood
+851	cholecystitis acute
+852	inflammatory bowel disease
+853	tendon injury
+854	Prinzmetal variant angina
+855	hiccough
+856	serum sickness
+857	acquired immune deficiency syndrome
+858	Anemia aplastic
+859	brain abscess
+860	synovial cyst
+861	ectopic pregnancies
+862	Papilloma
+863	pneumonia primary atypical
+864	retinopathy hypertensive
+865	Ovarian cancer
+866	lung adenocarcinoma
+867	Gastric Cancer
+868	tinea
+869	varicose vein
+870	pilonidal cyst
+871	cystic acne
+872	aphthous stomatitis
+873	body tinea
+874	familial adenomatous polyposis
+875	intestinal ulcer
+876	Cutaneous mycosis
+877	coccidioidomycosis
+878	humerus fracture
+879	volvulus
+880	Neuromuscular Disorder
+881	vaginal discharge
+882	Pneumocystis carinii infection
+883	Keloid scar
+884	primary biliary cirrhosis
+885	left ventricular hypertrophy
+886	colon polypectomy
+887	anosmia
+888	tetany
+889	abnormal cervical smear
+890	haemangioma
+891	incisional hernia
+892	abnormal mammogram
+893	Arthritis bacterial
+894	Splenic infarction
+895	Hernia Inguinal
+896	meningioma
+897	Pneumocystis carinii pneumonia
+898	phlebitis superficial
+899	gallbladder polyp
+900	peritoneal adhesions
+901	hypovitaminosis
+902	hepatic encephalopathy
+903	Dyspnoea paroxysmal nocturnal
+904	carotid bruit
+905	vitamin B 12 deficiency
+906	normal pressure hydrocephalus
+907	paraplegia
+908	Corneal dystrophy
+909	Aseptic meningitis
+910	Alcoholic intoxication
+911	causalgia
+912	Irritation Skin
+913	Bradyarrhythmia
+914	conversion disorder
+915	epidural abscess
+916	cholecystitis chronic
+917	swollen scrotum
+918	hay fever
+919	myasthenia gravis
+920	fibroids
+921	superior vena cava syndrome
+922	mediastinal disorder
+923	bladder cancer
+924	quadriplegia
+925	albuminuria
+926	Breast swelling
+927	neoplasm prostate
+928	alveolar proteinosis
+929	Bone marrow fibrosis
+930	histoplasmosis
+931	telangiectases
+932	Rheumatic fever
+933	neurodermatitis
+934	fibroadenoma of breast
+935	ganglion
+936	food allergy
+937	urethritis
+938	ovulation pain
+939	bacterial vaginitis
+940	hirsuitism
+941	Sjogrens syndrome
+942	vitreous detachment
+943	Vitreous haemorrhage
+944	venous insufficiency
+945	nasal septum disorder
+946	carcinoma of the cervix
+947	Burns Second Degree
+948	tension headache
+949	night cramps
+950	pigmentation disorder
+951	keratitis
+952	kidney transplant
+953	diabetes insipidus
+954	fracture nonunion
+955	carbuncle
+956	folliculitis
+957	jaundice neonatal
+958	empyema
+959	cleft lip
+960	Gastric ulcer perforated
+961	platelet disorder
+962	gallbladder perforation
+963	Rhinitis Seasonal
+964	allergic alveolitis
+965	cutaneous candidiasis
+966	chronic ulcerative colitis
+967	Meningitis Viral
+968	Anal fistula
+969	esophageal cancer
+970	JRA
+971	hydrocele
+972	iritis
+973	chalazion
+974	arterial insufficiency
+975	neurogenic bladder
+976	nasal polyp
+977	uterine bleeding
+978	Uterine polyp
+979	musculoskeletal deformity
+980	vascular anomaly
+981	tonsillitis
+982	hyperacusia
+983	enterocolitis
+984	motor retardation
+985	cryptococcosis
+986	Fatty stools
+987	priapism
+988	Whiplash Injury
+989	epidural hematoma
+990	Retinal artery occlusion
+991	neuroma
+992	chronic hepatitis
+993	food intolerance
+994	cluster headache
+995	mycosis fungoides
+996	connective tissue disease
+997	macrocytosis
+998	thyroiditis
+999	Anisocoria
+1000	rectal discharge
+1001	Herpes ophthalmic
+1002	calculus ureteric
+1003	thyroid cyst
+1004	HIV disease
+1005	Endometrial Atrophy
+1006	hypopituitarism
+1007	Menstrual Disorder
+1008	dysphemia
+1009	oophorectomy
+1010	irregular menstrual cycle
+1011	infectious mononucleosis
+1012	bladder atony
+1013	methaemoglobinaemia
+1014	pancreatic pseudocyst
+1015	Benign Neoplasm
+1016	Cerebral thrombosis
+1017	retinal vein thrombosis
+1018	Lyme Disease
+1019	lung abscess
+1020	kidney neoplasm
+1021	diarrhea infectious
+1022	motion sickness
+1023	hypoaldosteronism
+1024	testicular swelling
+1025	pneumoconiosis
+1026	coronary angioplasty
+1027	Skin Striae
+1028	hyperchloremia
+1029	corneal ulcer
+1030	eye redness
+1031	hyperphosphatemia
+1032	panniculitis
+1033	status epilepticus
+1034	sacroiliitis
+1035	chondrocalcinosis pyrophosphate
+1036	Tracheobronchitis
+1037	pyuria
+1038	agnosia
+1039	fibrosing alveolitis
+1040	hypervitaminosis
+1041	Porphyria
+1042	intussusception
+1043	amaurosis fugax
+1044	leukoplakia of mouth
+1045	gestational diabetes
+1046	xanthoma
+1047	Penile pain
+1048	optic atrophy
+1049	breast inflammation
+1050	xerosis
+1051	postmenopausal bleeding
+1052	spinal cord injury
+1053	esophageal rupture
+1054	food poisoning
+1055	rectal prolapse
+1056	heat stroke
+1057	hypersplenism
+1058	conjunctivitis viral
+1059	alcohol abuse
+1060	multifocal leukoencephalopathy
+1061	eustachian tube obstruction
+1062	Mumps
+1063	Peyronies Disease
+1064	global amnesia
+1065	papillary necrosis
+1066	dacrocystitis
+1067	encephalitis viral
+1068	avascular necrosis
+1069	megacolon
+1070	Salivary Gland Calculus
+1071	Cholangitis sclerosing
+1072	ophthalmoplegia
+1073	haemarthrosis
+1074	osteochondrosis
+1075	epiglottitis
+1076	fasciitis
+1077	Breast abscess
+1078	Neurosis
+1079	foreign body in eye
+1080	myoma
+1081	Erythema nodosum
+1082	tinea pedis
+1083	hypertrichosis
+1084	tuberculin test positive
+1085	hypogonadism
+1086	brachial plexus injury
+1087	hydroureter
+1088	Collagen disease
+1089	mental retardation
+1090	Hepatitis A
+1091	testes pain
+1092	Salpingitis
+1093	colonic obstruction
+1094	disorders of lipid metabolism
+1095	esophageal stenosis
+1096	febrile convulsion
+1097	melanosis
+1098	regurgitation
+1099	gallbladder cancer
+1100	lymphangitis
+1101	parotid gland enlargement
+1102	epididymitis
+1103	Morphea
+1104	chicken pox
+1105	hemothorax
+1106	bronchiolitis
+1107	coccydynia
+1108	dysmenorrhea
+1109	periarteritis nodosa
+1110	bacterial endocarditis
+1111	Penile swelling
+1112	corneal abrasion
+1113	Pterygium
+1114	pigmentary retinopathy
+1115	Post thrombotic syndrome
+1116	night blindness
+1117	Diphtheria
+1118	glioblastoma multiforme
+1119	Endometrial hyperplasia
+1120	biliary cirrhosis
+1121	premature separation of placenta
+1122	episcleritis
+1123	Bunion
+1124	Astrocytoma
+1125	trisomy 21
+1126	sarcoma
+1127	heat rash
+1128	lymphocytosis
+1129	reflex sympathetic dystrophy
+1130	adrenal carcinoma
+1131	Legionella
+1132	pyloric stenosis
+1133	exophthalmos
+1134	pemphigus
+1135	Endometrial cancer
+1136	polycystic ovary disease
+1137	Viral Pharyngitis
+1138	Cystitis Interstitial
+1139	trichomoniasis
+1140	Retroperitoneal fibrosis
+1141	Lice Infestation
+1142	Bladder Neoplasm
+1143	tinea versicolor
+1144	cleft palate
+1145	viral pneumonia
+1146	hypomenorrhea
+1147	Polymenorrhea
+1148	asthenopia
+1149	lagophthalmos
+1150	prolactinoma
+1151	Endometritis
+1152	endometriosis
+1153	myelitis
+1154	anal pruritus
+1155	abortion missed
+1156	osteoma
+1157	peripheral nerve injury
+1158	PMs
+1159	myoclonic epilepsy
+1160	Oligomenorrhea
+1161	lactose intolerance
+1162	retinitis
+1163	giardiasis
+1164	ankylosing spondylitis
+1165	refraction disorder
+1166	angle closure glaucoma
+1167	breast neoplasm
+1168	acute glomerulonephritis
+1169	Viral rash NOS
+1170	gastric stasis
+1171	folate deficiency
+1172	iridocyclitis
+1173	acute febrile neutrophilic dermatosis
+1174	osteopetrosis
+1175	thyroid cancer
+1176	chronic active hepatitis
+1177	thyroidectomy
+1178	bulimia
+1179	arteritis
+1180	ichthyosis
+1181	hypermetropia
+1182	Corneal clouding
+1183	cryptorchidism
+1184	depigmentation
+1185	vulvovaginitis
+1186	orchitis
+1187	carcinoid tumour
+1188	Leriche syndrome
+1189	renal cancer
+1190	ocular hypertension
+1191	Lymphatic Disorders
+1192	hepatitis C antibody positive
+1193	Tympanic membrane disorder
+1194	tonsillectomy
+1195	Essential Thrombocythemia
+1196	adenoid hypertrophy
+1197	cervical polyp
+1198	varicocele
+1199	dandruff
+1200	vulval abscess
+1201	ectropion
+1202	syphilis
+1203	alcoholic cirrhosis
+1204	Vaginal prolapse
+1205	balanitis
+1206	vaginal dysplasia
+1207	bone neoplasm
+1208	Bicuspid Aortic Valve
+1209	carcinoma
+1210	parapsoriasis
+1211	pityriasis
+1212	Intertrigo
+1213	anogenital warts
+1214	salivary gland enlargement
+1215	dyslexia
+1216	esophageal perforation
+1217	dermatophytosis
+1218	pneumonectomy
+1219	Dermatitis diaper
+1220	hypercalcinuria
+1221	thyroid adenoma
+1222	eclampsia
+1223	toxoplasmosis
+1224	exploratory laparotomy
+1225	amblyopia
+1226	Cryptosporidiosis
+1227	infestation
+1228	hyperamylasaemia
+1229	bacterial conjunctivitis
+1230	high risk pregnancy
+1231	leukoplakia
+1232	constrictive pericarditis
+1233	molluscum contagiosum
+1234	cavernous sinus thrombosis
+1235	Seasonal Affective Disorder
+1236	brachial neuritis
+1237	Cystic Fibrosis
+1238	tinea cruris
+1239	dwarfism
+1240	chondrodystrophy
+1241	hemoglobinuria
+1242	vascular headache
+1243	hypoparathyroidism
+1244	entropion
+1245	transurethral resection of the prostate
+1246	faecal impaction
+1247	decreased lacrimation
+1248	hematospermia
+1249	trifascicular block
+1250	meibomianitis
+1251	Pertussis
+1252	Osteogenesis Imperfecta
+1253	scleritis
+1254	renovascular hypertension
+1255	acute intermittent porphyria
+1256	oral neoplasm
+1257	IgA nephropathy
+1258	ephelides
+1259	testicular atrophy
+1260	vitamin B deficiency
+1261	HIV positive
+1262	vulvitis
+1263	mast cell disease
+1264	pyogenic granuloma
+1265	Haemophilia
+1266	rhabdomyosarcoma
+1267	choriocarcinoma
+1268	Oily Skin
+1269	encopresis
+1270	Tinea Capitis
+1271	hypospadias
+1272	eosinophilic pneumonia acute
+1273	infertility
+1274	genital herpes
+1275	orchiectomy
+1276	cataplexy
+1277	CYSTO
+1278	familial hypercholesterolemia
+1279	tetanus
+1280	parasitic infection intestinal
+1281	hemophilia B
+1282	allergic bronchitis
+1283	gonorrhea
+1284	Myringitis
+1285	otosclerosis
+1286	erythremia
+1287	Masculinization
+1288	penile discharge
+1289	hypochondriasis
+1290	renal agenesis
+1291	Typhoid
+1292	chorioretinitis
+1293	breast malformation
+1294	neurofibromatosis
+1295	rickets
+1296	supernumerary nipple
+1297	skin abrasion
+1298	cervical stenosis
+1299	urogenital abnormalities
+1300	traumatic amputation
+1301	sexually transmitted diseases
+1302	Herxheimer reaction
+1303	Vasomotor Rhinitis
+1304	corneal degeneration
+1305	corticosteroid therapy
+1306	Acromegaly
+1307	anthrax
+1308	septic abortion
+1309	anovulatory
+1310	bladder diverticulum
+1311	Rubella
+1312	splinter
+1313	hypogonadotropic hypogonadism
+1314	chloasma
+1315	estrogen replacement
