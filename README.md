@@ -82,4 +82,9 @@ For _AUC_FC_ and _AUC_FC_External_ datasets:
 
 `python main_AUC_FC.py`
 
+DDI inference on your own datasets
+---
 
+`$SMILES1` and `$SMILES2` correspond to the SMILES strings of the two drugs respectively, and `$DDI_type` denotes the type of drug-drug interaction to be predicted. When `$DDI_type = DeepDDI`, the model predicts whether an interaction occurs between the two drugs; when `$DDI_type = drugbank`, the model predicts whether the two drugs trigger any of the 86 types of interactions recorded in the DrugBank dataset; when `$DDI_type = twosides`, the model predicts whether the two drugs produce any of the more than 1,000 interactions documented in the TWOSIDES dataset.
+
+`python test_own_data.py --drug1 $SMILES1 --drug2 $SMILES2 --dataset $DDI_type`
