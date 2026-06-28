@@ -282,7 +282,7 @@ def test_nn_warm(model, test_loader, device, args,rel_dict):
 
 def get_rel_dict(dataset):
     rel_dict = {}
-    with open('/media/ST-18T/Ma/HA-DDI/data/preprocessed/case4/'+dataset+'_rel_dict.txt') as f:
+    with open('./data/preprocessed/case4/'+dataset+'_rel_dict.txt') as f:
         for line in f:
             Y = line.strip().split('\t')[0]
             content = line.strip().split('\t')[1]
@@ -408,7 +408,7 @@ def test(args):
 
 
 
-    model_path = '/media/ST-18T/Ma/HA-DDI/data/preprocessed/case4/model/'+args.dataset+'/model.pkl'
+    model_path = './data/preprocessed/case4/model/'+args.dataset+'/model.pkl'
 
     model.load_state_dict(torch.load(model_path, map_location=device))
 
